@@ -5,14 +5,11 @@ class BreweryInfo:
         self.url = url
 
     def fetch_data(self):
-        try:
+       
             response = requests.get(self.url)
-            response.raise_for_status()  # Raise an exception for 4xx and 5xx status codes
             data = response.json()
             return data
-        except requests.exceptions.RequestException as e:
-            print(f"Error fetching data: {e}")
-            return None
+        
 
     def count_breweries_with_websites_by_state(self, states):
         breweries_with_websites = {}
